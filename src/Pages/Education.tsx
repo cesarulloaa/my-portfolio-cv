@@ -2,9 +2,9 @@
 
 export default function Education() {
   return (
-    <section className="min-h-[100vh] h-full bg-no-repeat bg-gradient-cover px-6 py-12 relative" id="education">
+    <section className="min-h-[100vh] h-full bg-no-repeat bg-gradient-cover px-2 py-10 relative" id="education">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-30">
           <h3 className="text-5xl font-bold mb-4">Education</h3>
         </div>
 

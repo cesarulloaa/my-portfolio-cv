@@ -12,33 +12,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Enlaces de navegación */}
-                    <div className="flex space-x-6 mb-4 md:mb-0">
-                        <a 
-                            href="#home" 
-                            className="text-gray-300 hover:text-white transition-colors"
-                        >
-                            Home
-                        </a>
-                        <a 
-                            href="#projects" 
-                            className="text-gray-300 hover:text-white transition-colors"
-                        >
-                            Projects
-                        </a>
-                        <a 
-                            href="#education" 
-                            className="text-gray-300 hover:text-white transition-colors"
-                        >
-                            Education
-                        </a>
-                        <a 
-                            href="#contact" 
-                            className="text-gray-300 hover:text-white transition-colors"
-                        >
-                            Contact
-                        </a>
-                    </div>
+                  
 
                     {/* Redes sociales */}
                     <div className="flex space-x-4">
