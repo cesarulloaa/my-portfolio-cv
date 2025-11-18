@@ -12,7 +12,7 @@ export default function TechSection() {
   ];
 
   return (
-    <div className="min-h-screen py-20 bg-gradient-cover p-8 pt-20">
+    <section className="py-20 bg-gradient-cover px-4 sm:px-6 lg:px-8" id="technologies">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold text-center mb-16 text-gray-900">
           Tecnologías
@@ -32,7 +32,7 @@ export default function TechSection() {
                   }}
                 >
                   <div className={`${tech.color} p-6 rounded-2xl shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    <Icon className="w-12 h-12 md:w-16 md:h-16 text-white" strokeWidth={1.5} />
+                    <Icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
                   </div>
                   <span className="text-lg md:text-xl font-semibold text-gray-800">
                     {tech.name}
@@ -54,6 +54,6 @@ export default function TechSection() {
           }
         }
       `}</style>
-    </div>
+    </section>
   );
 }

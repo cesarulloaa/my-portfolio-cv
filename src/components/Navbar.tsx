@@ -50,7 +50,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden flex flex-col space-y-1"
           >
-            {isOpen ?(
+            {isOpen ? (
               "X"
             ) : (
 
@@ -61,7 +61,7 @@ export default function Navbar() {
               </>
 
             )}
-            
+
 
           </button>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                 >
                   Mi CV
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
 
               </li>
@@ -87,6 +87,13 @@ export default function Navbar() {
               <li className="relative group inline-block px-3 ">
                 <button onClick={() => scrollToSection('projects')} className="text-foreground text-[18px] hover:text-secondary transition">
                   Proyectos
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </button>
+              </li>
+
+              <li className="relative group inline-block px-3 ">
+                <button onClick={() => scrollToSection('technologies')} className="text-foreground text-[18px] hover:text-secondary transition">
+                  Tecnologías
                   <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </button>
               </li>
@@ -107,7 +114,7 @@ export default function Navbar() {
                   onClick={() => scrollToSection('about')}
                   className="text-foreground text-[18px] hover:text-secondary transition w-full text-left py-2"
                 >
-                  About me
+                  Mi CV
                 </button>
               </li>
               <li>
@@ -115,7 +122,7 @@ export default function Navbar() {
                   onClick={() => scrollToSection('education')}
                   className="text-foreground text-[18px] hover:text-secondary transition w-full text-left py-2"
                 >
-                  Education
+                  Educación
                 </button>
               </li>
               <li>
@@ -123,7 +130,15 @@ export default function Navbar() {
                   onClick={() => scrollToSection('projects')}
                   className="text-foreground text-[18px] hover:text-secondary transition w-full text-left py-2"
                 >
-                  Projects
+                  Proyoectos
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection('technologies')}
+                  className="text-foreground text-[18px] hover:text-secondary transition w-full text-left py-2"
+                >
+                  Tecnologías
                 </button>
               </li>
               <li>

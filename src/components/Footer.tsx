@@ -53,7 +53,7 @@ export default function Footer() {
                 {/* Línea separadora y mensaje adicional */}
                 <div className="mt-6 pt-6 border-t border-gray-700 text-center">
                     <p className="text-gray-400 text-sm">
-                        Built with React & Tailwind CSS
+                        Built with love and React. ❤️
                     </p>
                 </div>
             </div>

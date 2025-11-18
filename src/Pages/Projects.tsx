@@ -3,7 +3,7 @@
 export default function Projects() {
     return (
         <>
-            <section className="h-[80vh] py-10 bg-no-repeat bg-gradient-cover flex justify-center items-start text-center px-4 relative" id="projects">
+            <section className="py-20 bg-no-repeat bg-gradient-cover flex justify-center items-start text-center px-4 relative" id="projects">
 
                 <div className="max-w-6xl mx-auto ">
                     <div className="text-center mb-12">

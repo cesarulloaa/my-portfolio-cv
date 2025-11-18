@@ -2,7 +2,7 @@
 
 export default function Education() {
   return (
-    <section className="h-[80vh] py-20 bg-no-repeat bg-gradient-cover px-2  relative" id="education">
+    <section className="py-20 bg-no-repeat bg-gradient-cover px-6 relative sm:px-6 lg:px-8" id="education">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h3 className="text-5xl font-bold mb-4">Educación</h3>
