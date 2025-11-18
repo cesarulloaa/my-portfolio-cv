@@ -18,14 +18,12 @@ export default function Home() {
             Hi, I’m <span className="text-orange-500">Cesar Ulloa</span>
           </h1>
           <p className="text-[22px] max-w-2xl text-foreground/80 mb-6">
-            I’m a passionate <span className="font-semibold text-secondary">Full Stack Developer </span>
-            who loves building modern, responsive, and user-friendly web applications.
-            My focus is on creating <span className="font-semibold"> efficient solutions </span>
-            that combine clean design with powerful functionality.
+            Soy un <span className="font-semibold text-secondary">desarrollador Full Stack </span>
+            que disfruta crear aplicaciones web modernas, responsivas y fáciles de usar. Mi enfoque está en <span className="font-semibold"> desarrollar soluciones eficientes </span>
+            que combinen un diseño limpio con una funcionalidad potente.
           </p>
           <p className="text-md max-w-2xl text-foreground/70">
-            Welcome to my portfolio — here you’ll find my projects, skills, and the
-            journey I’ve taken to become a professional developer.
+            Bienvenido a mi portafolio — aquí encontrarás mis proyectos, habilidades y el camino que he recorrido para convertirme en un desarrollador profesional.
           </p>
           
          

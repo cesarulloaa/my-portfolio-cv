@@ -6,6 +6,7 @@ import "./index.css"
 import Education from './Pages/Education'
 import Home from './Pages/Home'
 import Projects from './Pages/Projects'
+import Technologies from './Pages/Technologies'
 
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
 
       <Navbar />
       <Home />
-      <Education />
       <Projects  />
+      <Education />
+      <Technologies />
       <Footer />
       
     </>

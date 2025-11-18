@@ -73,20 +73,20 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  My CV
+                  Mi CV
                 <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
 
               </li>
               <li className="relative group inline-block px-3">
                 <button onClick={() => scrollToSection('education')} className="text-foreground text-[18px] hover:text-secondary transition">
-                  Education
+                  Educación
                   <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </button>
               </li>
               <li className="relative group inline-block px-3 ">
                 <button onClick={() => scrollToSection('projects')} className="text-foreground text-[18px] hover:text-secondary transition">
-                  Projects
+                  Proyectos
                   <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </button>
               </li>
