@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import axios from 'axios';
+
+
+
 
 type ContactModalProps = {
     isOpen: boolean;
@@ -9,7 +13,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
-        email: '',
+        phone: '',
         message: ''
     });
 
@@ -22,10 +26,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Aquí puedes agregar la lógica para enviar el formulario
-        console.log('Datos del formulario:', formData);
-        alert('¡Mensaje enviado! Te contactaré pronto.');
-        onClose(); // Cierra el modal después de enviar
+        axios.post('http://localhost:3000/api/contact', formData)
+            .then(response => {
+                console.log('Datos del formulario:', response.data);
+                alert('¡Mensaje enviado! Te contactaré pronto.');
+                onClose();
+            }).catch(error => {
+                console.error('Error al enviar el formulario:', error);
+                alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+            });
     };
 
     if (!isOpen) return null;
@@ -36,7 +45,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 {/* Header del Modal */}
                 <div className="flex justify-between items-center p-6 border-b">
                     <h2 className="text-2xl font-bold text-gray-800">Contact Me</h2>
-                    <button 
+                    <button
                         onClick={onClose}
                         className="text-gray-500 hover:text-gray-700 text-2xl"
                     >
@@ -49,7 +58,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     <div className="grid grid-cols-2 gap-4 mb-4">
                         <div>
                             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                                First Name *
+                                Nombre *
                             </label>
                             <input
                                 type="text"
@@ -59,12 +68,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 value={formData.firstName}
                                 onChange={handleChange}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                                placeholder="Your first name"
+                                placeholder="Tu nombre"
                             />
                         </div>
                         <div>
                             <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                                Last Name *
+                                Apellido *
                             </label>
                             <input
                                 type="text"
@@ -74,30 +83,30 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 value={formData.lastName}
                                 onChange={handleChange}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                                placeholder="Your last name"
+                                placeholder="Tu apellido"
                             />
                         </div>
                     </div>
 
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                            Email *
+                            Telefono*
                         </label>
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
+                            type="tel"
+                            id="phone"
+                            name="phone"
                             required
-                            value={formData.email}
+                            value={formData.phone}
                             onChange={handleChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                            placeholder="your.email@example.com"
+                            placeholder="(xxx) xxx-xxxx"
                         />
                     </div>
 
                     <div className="mb-6">
                         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                            Message *
+                            Mensaje *
                         </label>
                         <textarea
                             id="message"
@@ -107,7 +116,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                             value={formData.message}
                             onChange={handleChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
-                            placeholder="Tell me about your project or inquiry..."
+                            placeholder="Cuéntame sobre tu proyecto o consulta..."
                         />
                     </div>
 
