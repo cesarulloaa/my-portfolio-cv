@@ -26,7 +26,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post('http://localhost:3000/api/contact', formData)
+        axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, formData)
             .then(response => {
                 console.log('Datos del formulario:', response.data);
                 alert('¡Mensaje enviado! Te contactaré pronto.');
