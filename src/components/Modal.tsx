@@ -26,6 +26,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (isSubmitting) return;
+
         setIsSubmitting(true);
 
         // Reemplaza 'TU_FORM_ID' con el ID que te de Formspree
