@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-
-
-
 type ContactModalProps = {
     isOpen: boolean;
     onClose: () => void;
@@ -17,6 +14,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         message: ''
     });
 
+    // Estado para controlar el botón de envío
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
@@ -24,23 +24,30 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, formData)
-            .then(response => {
-                console.log('Datos del formulario:', response.data);
-                alert('¡Mensaje enviado! Te contactaré pronto.');
-                onClose();
-            }).catch(error => {
-                console.error('Error al enviar el formulario:', error);
-                alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
-            });
+        setIsSubmitting(true);
+
+        // Reemplaza 'TU_FORM_ID' con el ID que te de Formspree
+        const FORMSPREE_ENDPOINT = "https://formspree.io/f/meezywda";
+
+        try {
+            await axios.post(FORMSPREE_ENDPOINT, formData);
+            alert('¡Mensaje enviado con éxito! Te contactaré pronto.');
+            setFormData({ firstName: '', lastName: '', phone: '', message: '' }); // Limpiar form
+            onClose();
+        } catch (error) {
+            console.error('Error al enviar:', error);
+            alert('Hubo un error. Por favor, usa Formspree directamente o revisa tu conexión.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-no-repeat bg-gradient-cover flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
                 {/* Header del Modal */}
                 <div className="flex justify-between items-center p-6 border-b">
@@ -89,8 +96,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                            Telefono*
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                            Teléfono *
                         </label>
                         <input
                             type="tel"
